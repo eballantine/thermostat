@@ -1,4 +1,5 @@
 const START_TEMP = 20;
+const MIN_TEMP = 10;
 
 class Thermo {
   constructor() {
@@ -7,5 +8,9 @@ class Thermo {
 
   up() {
     this.temp++
+  }
+
+  down() {
+    if(this.temp > MIN_TEMP) this.temp--;
   }
 }
