@@ -7,16 +7,18 @@ class Thermo {
   constructor() {
     this.temp = START_TEMP;
     this.isEcoMode = true;
-    this.energyProfile = this._checkEnergyProfile();
+    this.energyProfile = 'medium-usage';
   }
 
   up() {
     let maxTemp = this._setMaxTemp();
     if(this.temp < maxTemp) this.temp++;
+    this._checkEnergyProfile();
   }
 
   down() {
     if(this.temp > MIN_TEMP) this.temp--;
+    this._checkEnergyProfile();
   }
 
   switchOffEcoMode() {
@@ -25,6 +27,7 @@ class Thermo {
 
   reset() {
     this.temp = START_TEMP;
+    this._checkEnergyProfile();
   }
 
   _setMaxTemp() {
@@ -37,11 +40,11 @@ class Thermo {
 
   _checkEnergyProfile() {
     if(this.temp < 18) {
-      return 'low-usage';
+      this.energyProfile = 'low-usage';
     } else if(this.temp <= 25) {
-      return 'medium-usage';
+      this.energyProfile = 'medium-usage';
     } else {
-      return 'high-usage';
+      this.energyProfile = 'high-usage';
     }
   }
 }

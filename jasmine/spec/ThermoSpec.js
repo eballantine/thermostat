@@ -67,5 +67,18 @@ describe('Thermo', () => {
     it('has high energy usage', () => {
       expect(thermo.energyProfile).toEqual('high-usage')
     });
+
+    it('has low energy usage', () => {
+      thermo.reset()
+      for (let i = 0; i < 16; i++) {
+        thermo.down();
+      }
+      expect(thermo.energyProfile).toEqual('low-usage')
+    });
+
+    it('has medium energy usage', () => {
+      thermo.reset()
+      expect(thermo.energyProfile).toEqual('medium-usage')
+    });
   });
 });
