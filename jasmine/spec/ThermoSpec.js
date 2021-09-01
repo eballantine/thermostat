@@ -52,12 +52,20 @@ describe('Thermo', () => {
   });
 
   describe('powersaving mode is off', () => {
-    it('has a maximim temperature of 32˚C', () => {
+    beforeEach(() => {
       thermo.switchOffEcoMode();
-      for (let i = 0; i < 13; i++) {
+      for (let i = 0; i < 12; i++) {
         thermo.up();
       }
+    });
+    
+    it('has a maximim temperature of 32˚C', () => { 
+      thermo.up();
       expect(thermo.temp).toEqual(32);
+    });
+
+    it('has high energy usage', () => {
+      expect(thermo.energyProfile).toEqual('high-usage')
     });
   });
 });
