@@ -4,6 +4,7 @@ const MIN_TEMP = 10;
 class Thermo {
   constructor() {
     this.temp = START_TEMP;
+    this.isEcoMode = true;
   }
 
   up() {

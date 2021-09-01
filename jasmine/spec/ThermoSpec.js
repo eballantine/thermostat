@@ -25,5 +25,17 @@ describe('Thermo', () => {
     }
     expect(thermo.temp).toEqual(10);
   });
-  
+
+  it('has powersaving mode on by default', () => {
+    expect(thermo.isEcoMode).toEqual(true);
+  });
+
+  describe('powersaving mode is on', () => {
+    it('has a maximim temperature of 25˚C', () => {
+      for (let i = 0; i < 6; i++) {
+        thermo.up();
+      }
+      expect(thermo.temp).toEqual(25);
+    });
+  });
 });
