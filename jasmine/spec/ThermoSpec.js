@@ -35,6 +35,13 @@ describe('Thermo', () => {
     expect(thermo.isEcoMode).toEqual(false);
   });
 
+  it('can be reset to 20˚C', () => {
+    thermo.up();
+    thermo.up();
+    thermo.reset();
+    expect(thermo.temp).toEqual(20);
+  });
+
   describe('powersaving mode is on', () => {
     it('has a maximim temperature of 25˚C', () => {
       for (let i = 0; i < 6; i++) {

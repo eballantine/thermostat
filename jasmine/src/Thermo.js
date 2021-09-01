@@ -1,6 +1,7 @@
 const START_TEMP = 20;
 const MIN_TEMP = 10;
-let maxTemp;
+const MAX_ECO = 25;
+const MAX_NOT_ECO = 32;
 
 class Thermo {
   constructor() {
@@ -9,7 +10,7 @@ class Thermo {
   }
 
   up() {
-    this._setMaxTemp();
+    let maxTemp = this._setMaxTemp();
     if(this.temp < maxTemp) this.temp++;
   }
 
@@ -21,11 +22,15 @@ class Thermo {
     this.isEcoMode = false;
   }
 
+  reset() {
+    this.temp = START_TEMP;
+  }
+
   _setMaxTemp() {
     if(this.isEcoMode === true) {
-      maxTemp = 25;
+      return MAX_ECO;
     } else {
-      maxTemp = 32;
+      return MAX_NOT_ECO;
     }
   }
 }
