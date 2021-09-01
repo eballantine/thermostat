@@ -17,6 +17,10 @@ class Thermo {
     if(this.temp > MIN_TEMP) this.temp--;
   }
 
+  switchOffEcoMode() {
+    this.isEcoMode = false;
+  }
+
   _setMaxTemp() {
     if(this.isEcoMode === true) {
       maxTemp = 25;

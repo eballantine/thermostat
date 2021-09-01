@@ -30,12 +30,27 @@ describe('Thermo', () => {
     expect(thermo.isEcoMode).toEqual(true);
   });
 
+  it('power saving mode can be turned off', () => {
+    thermo.switchOffEcoMode();
+    expect(thermo.isEcoMode).toEqual(false);
+  });
+
   describe('powersaving mode is on', () => {
     it('has a maximim temperature of 25˚C', () => {
       for (let i = 0; i < 6; i++) {
         thermo.up();
       }
       expect(thermo.temp).toEqual(25);
+    });
+  });
+
+  describe('powersaving mode is off', () => {
+    it('has a maximim temperature of 32˚C', () => {
+      thermo.switchOffEcoMode();
+      for (let i = 0; i < 13; i++) {
+        thermo.up();
+      }
+      expect(thermo.temp).toEqual(32);
     });
   });
 });
