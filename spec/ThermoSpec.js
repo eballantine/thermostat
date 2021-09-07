@@ -30,11 +30,6 @@ describe('Thermo', () => {
     expect(thermo.isEcoMode).toEqual(true);
   });
 
-  it('power saving mode can be turned off', () => {
-    thermo.switchOffEcoMode();
-    expect(thermo.isEcoMode).toEqual(false);
-  });
-
   it('can be reset to 20˚C', () => {
     thermo.up();
     thermo.up();
@@ -48,6 +43,11 @@ describe('Thermo', () => {
         thermo.up();
       }
       expect(thermo.temp).toEqual(25);
+    });
+
+    it('power saving mode can be turned off', () => {
+      thermo.switchOffEcoMode();
+      expect(thermo.isEcoMode).toEqual(false);
     });
   });
 
@@ -80,5 +80,17 @@ describe('Thermo', () => {
       thermo.reset()
       expect(thermo.energyProfile).toEqual('medium-usage')
     });
+
+    describe('turning power saving mode back on', () => {
+      it('power saving mode can be turned back on', () => {
+        thermo.switchOnEcoMode();
+        expect(thermo.isEcoMode).toEqual(true);
+      });
+  
+      it('reduces temperature back to 25˚C if it had gone above', () => {
+        thermo.switchOnEcoMode();
+        expect(thermo.temp).toEqual(25);
+      })
+    })
   });
 });

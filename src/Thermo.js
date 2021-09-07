@@ -27,6 +27,7 @@ class Thermo {
   }
 
   switchOnEcoMode() {
+    if (this.temp > 25) { this.temp = 25 }
     this.isEcoMode = true;
   }
 
