@@ -14,12 +14,22 @@
       <button id="temp-up">+</button>
       <button id="temp-down">-</button>
       <button id="temp-reset">reset</button>
-      <p>EcoMode is <span id="eco-status">on</span></p>
+      <p>EcoMode is <span id="eco-status"></span></p>
       <button id="eco-on">EcoMode on</button>
       <button id="eco-off">EcoMode off</button>
     </p>
   </section>
 
+  <section>
+    <h2>Current temperature in <span id="location">London</span>: <span id="current-temp"></span></h2>
+    <p>Choose a different city</p>
+    <form id="select-city">
+      <input id="current-city" type="text" placeholder="Enter a city"></input>
+      <input type="submit"></input>
+      <p id="select-city-error"></p>
+    </form>
+  </section>
+  
   <script src="src/thermo.js"></script>
   <script src="src/interface.js"></script>
 </body>
