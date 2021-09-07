@@ -58,8 +58,8 @@ describe('Thermo', () => {
         thermo.up();
       }
     });
-    
-    it('has a maximim temperature of 32˚C', () => { 
+
+    it('has a maximim temperature of 32˚C', () => {
       thermo.up();
       expect(thermo.temp).toEqual(32);
     });
