@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const thermo = new Thermo();
   const updateTemp = () => {
     document.querySelector('#temp').innerText = thermo.temp;
-    document.querySelector('#temp').className = thermo.energyProfile;
+    document.querySelector('#thermo').className = thermo.energyProfile;
   }
 
   const updateEcoStatus = () => {

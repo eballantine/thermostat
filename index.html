@@ -8,20 +8,20 @@
   <title>Document</title>
 </head>
 <body>
-  <section>
-    <h1 id="temp"></h1>
-    <p>
-      <button id="temp-up">+</button>
-      <button id="temp-down">-</button>
-      <button id="temp-reset">reset</button>
-      <p>EcoMode is <span id="eco-status"></span></p>
-      <button id="eco-on">EcoMode on</button>
-      <button id="eco-off">EcoMode off</button>
-    </p>
+  <h1>Thermostat</h1>
+  <section id="thermo">
+    <button id="temp-up">+</button>
+    <h2 id="temp"></h2>
+    <button id="temp-down">-</button>
+    <button id="temp-reset">reset</button>
+    <p>EcoMode is <span id="eco-status"></span></p>
+    <button id="eco-on">EcoMode On</button>
+    <button id="eco-off">EcoMode Off</button>
   </section>
 
-  <section>
-    <h2>Current temperature in <span id="location">London</span>: <span id="current-temp"></span></h2>
+  <section id="weather-checker">
+    <h2>Weather Checker</h2>
+    <h3>Current temperature in <span id="location">London</span>: <span id="current-temp"></span></h3>
     <p>Choose a different city</p>
     <form id="select-city">
       <input id="current-city" type="text" placeholder="Enter a city"></input>

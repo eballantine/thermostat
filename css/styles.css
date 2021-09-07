@@ -1,3 +1,6 @@
+body {
+  padding: 24px;
+}
 
 .low-usage {
   background-color: green;
@@ -9,4 +12,12 @@
 
 .high-usage {
   background-color: red;
+}
+
+#thermo {
+  padding: 24px;
+}
+
+#weather-checker {
+  padding-top: 24px;
 }
